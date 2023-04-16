@@ -12,20 +12,23 @@ export const trafficThunk = createAsyncThunk(
 export const trafficSliceSlice = createSlice({
   name: 'traffic',
   initialState: {
-    locations: [],
+    locations: {},
     isLocationLoading: false,
   },
   reducers: {},
   extraReducers: builder => {
     builder
     .addCase(trafficThunk.pending, (state) => {
+      state.locations = {};
       state.isLocationLoading = true;
     })
     .addCase(trafficThunk.fulfilled, (state, action) => {
+      debugger;
       state.locations = action.payload;
       state.isLocationLoading = false;
     })
     .addCase(trafficThunk.rejected, (state) => {
+      state.locations = {};
       state.isLocationLoading = false;
     });
   },

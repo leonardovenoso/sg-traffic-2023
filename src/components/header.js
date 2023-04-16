@@ -17,7 +17,7 @@ const Header = () => {
     setShowChild(true);
   }, []);
 
-  useEffect(() => {
+  useEffect(() => { 
     const dateTime = moment(date).format('YYYY-MM-DDTHH:mm:00');
 
     if (moment(dateTime).isValid() && moment(dateTime).year() >= 2016) {

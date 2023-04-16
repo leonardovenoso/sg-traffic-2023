@@ -10,23 +10,25 @@ export const weatherThunk = createAsyncThunk(
 );
 
 export const weatherSlice = createSlice({
-  name: 'weatherSlice',
+  name: 'weather',
   initialState: {
-    weather: [],
-    isLoading: false,
+    weatherLocations: {},
+    isWeatherLoading: false,
   },
   reducers: {},
-  extraReducers: () => {
+  extraReducers: builder => {
     builder
     .addCase(weatherThunk.pending, (state) => {
-      state.isLoading = true;
+      state.weatherLocations = {};
+      state.isWeatherLoading = true;
     })
     .addCase(weatherThunk.fulfilled, (state, action) => {
-      state.weather = action.payload.items;
-      state.isLoading = false;
+      state.weatherLocations = action.payload;
+      state.isWeatherLoading = false;
     })
     .addCase(weatherThunk.rejected, (state) => {
-      state.isLoading = false;
+      state.weatherLocations = {};
+      state.isWeatherLoading = false;
     });
   },
 });
