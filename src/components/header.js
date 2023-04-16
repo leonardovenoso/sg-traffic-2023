@@ -9,8 +9,8 @@ import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
 
 const Header = () => {
+  const [date, setDate] = useState(moment().subtract({ 'minutes': 10 }).toDate());
   const dispatch = useDispatch();
-  const [date, setDate] = useState(new Date());
   const [showChild, setShowChild] = useState(false);
 
   useEffect(() => {
@@ -19,9 +19,12 @@ const Header = () => {
 
   useEffect(() => {
     const dateTime = moment(date).format('YYYY-MM-DDTHH:mm:00');
-    dispatch(trafficThunk({ dateTime }));
-    dispatch(weatherThunk( { dateTime }));
-  }, [date]);
+
+    if (moment(dateTime).isValid() && moment(dateTime).year() >= 2016) {
+      dispatch(trafficThunk({ dateTime }));
+      dispatch(weatherThunk( { dateTime }));
+    }
+  }, [date, dispatch]);
 
   if (!showChild) {
     return null;
@@ -30,7 +33,14 @@ const Header = () => {
     return <></>;
   } else {
     return (
-      <DateTimePicker onChange={setDate} value={date} disableClock={true} disableCalendar={true} format='y-MM-dd h:mm a'/>
+      <DateTimePicker
+        onChange={setDate}
+        minDate={new Date('2016-03-01')}
+        value={date}
+        disableClock={true}
+        disableCalendar={true}
+        format='y-MM-dd h:mm a'
+      />
     );
   }
 };
