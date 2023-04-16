@@ -1,0 +1,12 @@
+:root {
+  --light-gray: rgb(187, 187, 187);
+  --red: #ff5252;
+}
+
+html {
+  font-size: 16px;
+}
+
+.react-datetime-picker__wrapper {
+  border: 1px solid var(--light-gray) !important;
+}

@@ -13,20 +13,20 @@ export const trafficSliceSlice = createSlice({
   name: 'traffic',
   initialState: {
     locations: [],
-    isLoading: false,
+    isLocationLoading: false,
   },
   reducers: {},
   extraReducers: builder => {
     builder
     .addCase(trafficThunk.pending, (state) => {
-      state.isLoading = true;
+      state.isLocationLoading = true;
     })
     .addCase(trafficThunk.fulfilled, (state, action) => {
       state.locations = action.payload;
-      state.isLoading = false;
+      state.isLocationLoading = false;
     })
     .addCase(trafficThunk.rejected, (state) => {
-      state.isLoading = false;
+      state.isLocationLoading = false;
     });
   },
 });
