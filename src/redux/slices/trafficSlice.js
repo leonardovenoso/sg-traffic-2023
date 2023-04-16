@@ -10,7 +10,7 @@ export const trafficThunk = createAsyncThunk(
 );
 
 export const trafficSliceSlice = createSlice({
-  name: 'trafficSlice',
+  name: 'traffic',
   initialState: {
     locations: [],
     isLoading: false,
@@ -22,7 +22,7 @@ export const trafficSliceSlice = createSlice({
       state.isLoading = true;
     })
     .addCase(trafficThunk.fulfilled, (state, action) => {
-      state.locations = action.payload.items;
+      state.locations = action.payload;
       state.isLoading = false;
     })
     .addCase(trafficThunk.rejected, (state) => {
