@@ -23,7 +23,6 @@ export const trafficSliceSlice = createSlice({
       state.isLocationLoading = true;
     })
     .addCase(trafficThunk.fulfilled, (state, action) => {
-      debugger;
       state.locations = action.payload;
       state.isLocationLoading = false;
     })

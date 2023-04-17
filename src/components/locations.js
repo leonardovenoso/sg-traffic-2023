@@ -33,7 +33,7 @@ const Locations = () => {
           ))}
         </div>
       }
-      <Spinner show={isLocationLoading || isWeatherLoading } />
+      <Spinner show={isLocationLoading || isWeatherLoading} />
     </>
   );
 };

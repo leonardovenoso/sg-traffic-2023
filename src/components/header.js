@@ -9,7 +9,7 @@ import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
 
 const Header = () => {
-  const [date, setDate] = useState(moment().subtract({ 'minutes': 10 }).toDate());
+  const [date, setDate] = useState(moment().subtract({ 'hours': 24 }).toDate());
   const dispatch = useDispatch();
   const [showChild, setShowChild] = useState(false);
 

@@ -22,6 +22,7 @@ export default function Home() {
           <p>Not required to expand images</p>
           <p>Location name can be obtained by calculating the minimal distance from a camera to the center of all the Singapore states provided by the weather API</p>
           <p>Distance calculation does not take into consideration slopes or hills</p>
+          <p>Substracted 24 hours from date and time because sometimes the weather API does not send the current weather condition</p>
         </div>
       </main>
     </>
