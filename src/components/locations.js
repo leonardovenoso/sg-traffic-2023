@@ -19,7 +19,7 @@ const Locations = () => {
               <div className={styles.body}>
                 <p>Camara id: {location.cameraId}</p>
                 <p>Latitud and Longitude: ({location.lat}, {location.lon})</p>
-                <Image src={location.imageURL} alt='' className={styles.image} width={200} height={200} alt='' />
+                <Image src={location.imageURL} alt='' className={styles.image} width={200} height={200} />
               </div>
             </div>
           ))}
