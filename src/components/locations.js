@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import Spinner from './spinner';
 import styles from '@/styles/locations.module.css';
+import Image from 'next/image';
 
 const Locations = () => {
   const { locations, isLocationLoading } = useSelector(state => state.locations);
@@ -18,7 +19,7 @@ const Locations = () => {
               <div className={styles.body}>
                 <p>Camara id: {location.cameraId}</p>
                 <p>Latitud and Longitude: ({location.lat}, {location.lon})</p>
-                <img src={location.imageURL} alt='' className={styles.image} />
+                <Image src={location.imageURL} alt='' className={styles.image} width={200} height={200} alt='' />
               </div>
             </div>
           ))}
