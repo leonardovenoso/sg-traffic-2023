@@ -1,16 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-export const trafficThunk = createAsyncThunk(
-  '/traffic',
+export const locationsThunk = createAsyncThunk(
+  '/locations',
   async({ dateTime }) => {
-    const res = await fetch(`https://api.data.gov.sg/v1/transport/traffic-images?date_time=${dateTime}`)
+    const res = await fetch(`http://localhost:3001/v1/locations?datetime=${dateTime}`)
       .then(res => res.json());
     return res;
   }
 );
 
 export const trafficSliceSlice = createSlice({
-  name: 'traffic',
+  name: 'locations',
   initialState: {
     locations: {},
     isLocationLoading: false,
@@ -18,15 +18,15 @@ export const trafficSliceSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-    .addCase(trafficThunk.pending, (state) => {
+    .addCase(locationsThunk.pending, (state) => {
       state.locations = {};
       state.isLocationLoading = true;
     })
-    .addCase(trafficThunk.fulfilled, (state, action) => {
+    .addCase(locationsThunk.fulfilled, (state, action) => {
       state.locations = action.payload;
       state.isLocationLoading = false;
     })
-    .addCase(trafficThunk.rejected, (state) => {
+    .addCase(locationsThunk.rejected, (state) => {
       state.locations = {};
       state.isLocationLoading = false;
     });

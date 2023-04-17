@@ -1,10 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import trafficReducer from './slices/trafficSlice';
-import weatherReducer from './slices/weatherSlice';
+import locationsReducer from './slices/locationsSlice';
 
 export default configureStore({
   reducer: combineReducers({
-    traffic: trafficReducer,
-    weather: weatherReducer,
+    locations: locationsReducer,
   }),
 });
