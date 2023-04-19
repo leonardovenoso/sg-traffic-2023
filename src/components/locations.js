@@ -9,7 +9,7 @@ const Locations = () => {
   return (
     <>
       {locations.length > 0 &&
-        <div>
+        <div data-test-id='locations'>
           <h1>Locations</h1>
           {locations.map((location, i) => (
             <div className={styles.locationCard} key={i}>
