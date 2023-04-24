@@ -12,7 +12,7 @@ export const locationsThunk = createAsyncThunk(
 export const trafficSliceSlice = createSlice({
   name: 'locations',
   initialState: {
-    locations: {},
+    locations: undefined,
     isLocationLoading: false,
   },
   reducers: {},
